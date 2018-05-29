@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace UFCApp.Droid.Fragments
 {
-    public class NewsFragment : Android.Support.V4.App.Fragment
+    public class NewsFragment : Android.Support.V4.App.ListFragment
     {
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -22,10 +22,6 @@ namespace UFCApp.Droid.Fragments
             // Create your fragment here
         }
 
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-        {
-            // Use this to return your custom view for this Fragment
-            return inflater.Inflate(Resource.Layout.News, container, false);
-        }
+       
     }
 }
