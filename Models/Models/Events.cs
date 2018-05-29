@@ -15,7 +15,7 @@
         public string BaseTitle { get; set; }
 
         [JsonProperty(PropertyName = "title_tag_line")]
-        public string TitleTag { get; set; }
+        public string Title { get; set; }
 
         [JsonProperty(PropertyName = "arena")]
         public string Arena { get; set; }

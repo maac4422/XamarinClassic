@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Models.Models;
 
 namespace UFCApp.Droid.Adapters
 {
@@ -16,10 +17,12 @@ namespace UFCApp.Droid.Adapters
     {
 
         Context context;
+        List<Events> events;
 
-        public EventsAdapter(Context context)
+        public EventsAdapter(Context context, List<Events> events)
         {
             this.context = context;
+            this.events = events;
         }
 
 
@@ -47,14 +50,15 @@ namespace UFCApp.Droid.Adapters
                 var inflater = context.GetSystemService(Context.LayoutInflaterService).JavaCast<LayoutInflater>();
                 //replace with your item and your holder items
                 //comment back in
-                //view = inflater.Inflate(Resource.Layout.item, parent, false);
-                //holder.Title = view.FindViewById<TextView>(Resource.Id.text);
+                view = inflater.Inflate(Resource.Layout.EventCell, parent, false);
+                //holder.Title = view.FindViewById<TextView>(Resource.Id.eventTitleTextView);
                 view.Tag = holder;
             }
 
 
             //fill in your items
-            //holder.Title.Text = "new text here";
+            var currentEvent = events[position];
+            holder.Title.Text = currentEvent.Title;
 
             return view;
         }
@@ -64,7 +68,7 @@ namespace UFCApp.Droid.Adapters
         {
             get
             {
-                return 0;
+                return events.Count;
             }
         }
 
@@ -73,6 +77,6 @@ namespace UFCApp.Droid.Adapters
     class EventsAdapterViewHolder : Java.Lang.Object
     {
         //Your adapter views to re-use
-        //public TextView Title { get; set; }
+        public TextView Title { get; set; }
     }
 }
