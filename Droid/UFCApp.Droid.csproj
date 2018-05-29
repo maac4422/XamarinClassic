@@ -95,6 +95,10 @@
       <Project>{03720b72-325c-4260-9988-c24169aa4e63}</Project>
       <Name>BusinessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{844023f3-3e9f-4211-9c13-e97bc4f063c0}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UFCApp\UFCApp.csproj">
       <Project>{A9AD5867-1845-4CA0-B0D4-FE184B53FBC8}</Project>
       <Name>UFCApp</Name>

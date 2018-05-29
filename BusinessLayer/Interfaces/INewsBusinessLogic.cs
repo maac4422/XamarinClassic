@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BusinessLayer.Interfaces
+﻿namespace BusinessLayer.Interfaces
 {
-    class INewsBusinessLogic
+    using Models.Models;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+
+    public interface INewsBusinessLogic
     {
+        Task<List<News>> GetNews();
+
+        Task<News> GetNew(int id);
     }
 }

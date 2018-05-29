@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BusinessLayer.Interfaces
+﻿namespace BusinessLayer.Interfaces
 {
-    class IEventsBusinessLogic
+    using Models.Models;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+
+    public interface IEventsBusinessLogic
     {
+        Task<List<Events>> GetEvents();
+
+        Task<Events> GetEvent(int id);
     }
 }
