@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ServiceAccessLayer.Constants
+﻿namespace ServiceAccessLayer.Constants
 {
-    public class ServicesConstants
+    public static class ServicesConstants
     {
+        public const string UrlBase = "http://ufc-data-api.ufc.com";
+        public const string ServisePrefix = "/api/v1/us";
     }
 }

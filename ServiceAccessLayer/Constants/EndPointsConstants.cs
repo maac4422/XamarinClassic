@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ServiceAccessLayer.Constants
+﻿namespace ServiceAccessLayer.Constants
 {
-    public class EndPointsConstants
+    public static class EndPointsConstants
     {
+        public const string Events = "/events";
+        public const string News = "/news";
     }
 }

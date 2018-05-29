@@ -91,12 +91,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{03720b72-325c-4260-9988-c24169aa4e63}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UFCApp\UFCApp.csproj">
       <Project>{A9AD5867-1845-4CA0-B0D4-FE184B53FBC8}</Project>
       <Name>UFCApp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapters\EventsAdapter.cs" />
+    <Compile Include="Adapters\NewsAdapter.cs" />
     <Compile Include="Fragments\EventsFragment.cs" />
     <Compile Include="Fragments\NewsFragment.cs" />
     <Compile Include="MainActivity.cs" />
@@ -130,7 +136,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Activities\" />
-    <Folder Include="Adapters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\NewCell.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Annotations.27.0.2\build\MonoAndroid81\Xamarin.Android.Support.Annotations.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Annotations.27.0.2\build\MonoAndroid81\Xamarin.Android.Support.Annotations.targets')" />

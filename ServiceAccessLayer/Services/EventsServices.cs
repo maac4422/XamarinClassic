@@ -1,10 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ServiceAccessLayer.Services
+﻿namespace ServiceAccessLayer.Services
 {
-    public class EventsServices
+    using System.Threading.Tasks;
+    using Models.Models;
+    using ServiceAccessLayer.Interfaces;
+
+    public class EventsServices : IEventsServices
     {
+        public Task<Response> GetEvent(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<Response> GetEvents()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
