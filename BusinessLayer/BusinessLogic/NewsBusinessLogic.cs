@@ -20,6 +20,7 @@
         }
         #endregion
 
+        #region Methods
         public Task<News> GetNew(int id)
         {
             throw new System.NotImplementedException();
@@ -35,5 +36,6 @@
 
             return news;
         }
+        #endregion
     }
 }

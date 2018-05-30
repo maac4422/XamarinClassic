@@ -9,12 +9,18 @@
 
     public class EventsBusinessLogic : IEventsBusinessLogic
     {
+        #region Attributes
         private IEventsServices eventsServices;
+        #endregion
 
+        #region Constructors
         public EventsBusinessLogic()
         {
             eventsServices = new EventsServices();
         }
+        #endregion
+
+        #region Methods
         public Task<Events> GetEvent(int id)
         {
             throw new System.NotImplementedException();
@@ -30,5 +36,6 @@
 
             return events;
         }
+        #endregion
     }
 }

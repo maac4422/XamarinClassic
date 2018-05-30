@@ -19,6 +19,7 @@
         }
         #endregion
 
+        #region Methods
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             //Setup and inflate your layout here
@@ -36,8 +37,8 @@
             viewHolder.Title.Text = item.Title;
         }
         
-        
         public override int ItemCount => news.Count;
+        #endregion
     }
 
     class NewsAdapterViewHolder : RecyclerView.ViewHolder
@@ -46,9 +47,11 @@
         public TextView Title { get; private set; }
         #endregion
 
+        #region Constructors
         public NewsAdapterViewHolder(View v) : base(v)
         {
             Title = (TextView)v.FindViewById(Resource.Id.newTitle);
         }
+        #endregion
     }
 }

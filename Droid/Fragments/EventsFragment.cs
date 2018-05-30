@@ -20,6 +20,7 @@
         private List<Events> events;
         #endregion
 
+        #region LifeCycle
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -54,5 +55,6 @@
             recyclerView.SetAdapter(adapter);
             return rootView;
         }
+        #endregion
     }
 }

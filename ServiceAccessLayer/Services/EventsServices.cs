@@ -7,13 +7,18 @@
 
     public class EventsServices : IEventsServices
     {
+        #region Attributes
         private ApiServices apiServices;
+        #endregion
 
+        #region Constructors
         public EventsServices()
         {
             this.apiServices = new ApiServices();
         }
+        #endregion
 
+        #region Methods
         public async Task<Response> GetEvent(int id)
         {
             var response = await apiServices.Get<Events>(
@@ -31,5 +36,6 @@
                EndPointsConstants.Events);
             return response;
         }
+        #endregion
     }
 }

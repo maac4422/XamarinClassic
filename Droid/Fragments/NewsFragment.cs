@@ -20,6 +20,7 @@
         private List<News> news;
         #endregion
 
+        #region LifeCycle
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -54,7 +55,7 @@
             recyclerView.SetAdapter(adapter);
             return rootView;
         }
-
+        #endregion
 
     }
 }
