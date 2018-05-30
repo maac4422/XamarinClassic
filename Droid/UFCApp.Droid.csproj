@@ -118,7 +118,7 @@
     <Compile Include="Adapters\NewsAdapter.cs" />
     <Compile Include="Fragments\EventsFragment.cs" />
     <Compile Include="Fragments\NewsFragment.cs" />
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -147,9 +147,7 @@
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Activities\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <AndroidResource Include="Resources\layout\NewCell.axml">
       <SubType>Designer</SubType>
