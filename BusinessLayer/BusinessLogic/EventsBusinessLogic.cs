@@ -21,9 +21,15 @@
         #endregion
 
         #region Methods
-        public Task<Events> GetEvent(int id)
+        public async Task<Events> GetEvent(int id)
         {
-            throw new System.NotImplementedException();
+            var response = await eventsServices.GetEvent(id);
+            if (!response.IsSuccess)
+            {
+            }
+            var currentEvent = (Events)response.Result;
+
+            return currentEvent;
         }
 
         public async Task<List<Events>> GetEvents()

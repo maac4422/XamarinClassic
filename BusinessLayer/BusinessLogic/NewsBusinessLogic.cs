@@ -21,9 +21,15 @@
         #endregion
 
         #region Methods
-        public Task<News> GetNew(int id)
+        public async Task<News> GetNew(int id)
         {
-            throw new System.NotImplementedException();
+            var response = await newsServices.GetNew(id);
+            if (!response.IsSuccess)
+            {
+            }
+            var news = (List<News>)response.Result;
+
+            return news;
         }
 
         public async Task<List<News>> GetNews()
