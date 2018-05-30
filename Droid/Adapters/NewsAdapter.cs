@@ -1,78 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-
-namespace UFCApp.Droid.Adapters
+﻿namespace UFCApp.Droid.Adapters
 {
-    class NewsAdapter : BaseAdapter
+    using System.Collections.Generic;
+    using Android.Support.V7.Widget;
+    using Android.Views;
+    using Android.Widget;
+    using Models.Models;
+
+    class NewsAdapter : RecyclerView.Adapter
     {
+        #region Attributes
+        List<News> news;
+        #endregion
 
-        Context context;
-
-        public NewsAdapter(Context context)
+        #region Constructors
+        public NewsAdapter(List<News> news)
         {
-            this.context = context;
+            this.news = news;
+        }
+        #endregion
+
+        public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
+        {
+            //Setup and inflate your layout here
+            var id = Resource.Layout.NewCell;
+            View view = LayoutInflater.From(parent.Context)
+                .Inflate(id, parent, false);
+            NewsAdapterViewHolder viewHolder = new NewsAdapterViewHolder(view);
+            return viewHolder;
         }
 
-
-        public override Java.Lang.Object GetItem(int position)
+        public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            return position;
+            var item = news[position];
+            var viewHolder = holder as NewsAdapterViewHolder;
+            viewHolder.Title.Text = item.Title;
         }
-
-        public override long GetItemId(int position)
-        {
-            return position;
-        }
-
-        public override View GetView(int position, View convertView, ViewGroup parent)
-        {
-            var view = convertView;
-            NewsAdapterViewHolder holder = null;
-
-            if (view != null)
-                holder = view.Tag as NewsAdapterViewHolder;
-
-            if (holder == null)
-            {
-                holder = new NewsAdapterViewHolder();
-                var inflater = context.GetSystemService(Context.LayoutInflaterService).JavaCast<LayoutInflater>();
-                //replace with your item and your holder items
-                //comment back in
-                //view = inflater.Inflate(Resource.Layout.item, parent, false);
-                //holder.Title = view.FindViewById<TextView>(Resource.Id.text);
-                view.Tag = holder;
-            }
-
-
-            //fill in your items
-            //holder.Title.Text = "new text here";
-
-            return view;
-        }
-
-        //Fill in cound here, currently 0
-        public override int Count
-        {
-            get
-            {
-                return 0;
-            }
-        }
-
+        
+        
+        public override int ItemCount => news.Count;
     }
 
-    class NewsAdapterViewHolder : Java.Lang.Object
+    class NewsAdapterViewHolder : RecyclerView.ViewHolder
     {
-        //Your adapter views to re-use
-        //public TextView Title { get; set; }
+        #region Propierties
+        public TextView Title { get; private set; }
+        #endregion
+
+        public NewsAdapterViewHolder(View v) : base(v)
+        {
+            Title = (TextView)v.FindViewById(Resource.Id.newTitle);
+        }
     }
 }

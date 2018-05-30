@@ -2612,8 +2612,11 @@ namespace UFCApp.Droid
 			// aapt resource value: 0x7f08003b
 			public const int never = 2131230779;
 			
+			// aapt resource value: 0x7f0800a0
+			public const int newRecyclerView = 2131230880;
+			
 			// aapt resource value: 0x7f08009f
-			public const int newName = 2131230879;
+			public const int newTitle = 2131230879;
 			
 			// aapt resource value: 0x7f08009c
 			public const int newsTabItem = 2131230876;
@@ -2791,9 +2794,6 @@ namespace UFCApp.Droid
 			
 			// aapt resource value: 0x7f080069
 			public const int textSpacerNoTitle = 2131230825;
-			
-			// aapt resource value: 0x7f0800a0
-			public const int textView1 = 2131230880;
 			
 			// aapt resource value: 0x7f080098
 			public const int text_input_password_toggle = 2131230872;
