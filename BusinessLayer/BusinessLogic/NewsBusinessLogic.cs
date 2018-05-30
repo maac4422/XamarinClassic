@@ -27,9 +27,9 @@
             if (!response.IsSuccess)
             {
             }
-            var news = (List<News>)response.Result;
+            var currentNew = (News)response.Result;
 
-            return news;
+            return currentNew;
         }
 
         public async Task<List<News>> GetNews()
