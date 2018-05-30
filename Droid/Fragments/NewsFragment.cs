@@ -50,7 +50,7 @@
             recyclerView.SetLayoutManager(layoutManager);
 
 
-            adapter = new NewsAdapter(news);
+            adapter = new NewsAdapter(this.Activity,news);
             // Set CustomAdapter as the adapter for RecycleView
             recyclerView.SetAdapter(adapter);
             return rootView;
