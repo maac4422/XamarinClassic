@@ -1,82 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Models.Models;
-
-namespace UFCApp.Droid.Adapters
+﻿namespace UFCApp.Droid.Adapters
 {
-    class EventsAdapter : BaseAdapter
+    using System.Collections.Generic;
+    using Android.Support.V7.Widget;
+    using Android.Views;
+    using Android.Widget;
+    using Models.Models;
+
+    public class EventsAdapter : RecyclerView.Adapter
     {
-
-        Context context;
+        #region Attributes
         List<Events> events;
+        #endregion
 
-        public EventsAdapter(Context context, List<Events> events)
+        #region Constructors
+        public EventsAdapter(List<Events> events)
         {
-            this.context = context;
             this.events = events;
         }
+        #endregion
 
-
-        public override Java.Lang.Object GetItem(int position)
+        public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            return position;
+            //Setup and inflate your layout here
+            var id = Resource.Layout.EventCell;
+            View view = LayoutInflater.From(parent.Context)
+                .Inflate(id, parent, false);
+            EventsAdapterViewHolder viewHolder = new EventsAdapterViewHolder(view);
+            return viewHolder;
         }
 
-        public override long GetItemId(int position)
+        public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            return position;
+            var item = events[position];
+            var viewHolder = holder as EventsAdapterViewHolder;
+            viewHolder.Title.Text = item.Title;
         }
-
-        public override View GetView(int position, View convertView, ViewGroup parent)
-        {
-            var view = convertView;
-            EventsAdapterViewHolder holder = null;
-
-            if (view != null)
-                holder = view.Tag as EventsAdapterViewHolder;
-
-            if (holder == null)
-            {
-                holder = new EventsAdapterViewHolder();
-                var inflater = context.GetSystemService(Context.LayoutInflaterService).JavaCast<LayoutInflater>();
-                //replace with your item and your holder items
-                //comment back in
-                view = inflater.Inflate(Resource.Layout.EventCell, parent, false);
-                //holder.Title = view.FindViewById<TextView>(Resource.Id.eventTitleTextView);
-                view.Tag = holder;
-            }
-
-
-            //fill in your items
-            var currentEvent = events[position];
-            holder.Title.Text = currentEvent.Title;
-
-            return view;
-        }
-
-        //Fill in cound here, currently 0
-        public override int Count
-        {
-            get
-            {
-                return events.Count;
-            }
-        }
-
+        
+        public override int ItemCount => events.Count;
     }
 
-    class EventsAdapterViewHolder : Java.Lang.Object
+    public class EventsAdapterViewHolder : RecyclerView.ViewHolder
     {
-        //Your adapter views to re-use
-        public TextView Title { get; set; }
+
+        #region Propierties
+        public TextView Title{ get; private set; }
+        #endregion
+
+        public EventsAdapterViewHolder(View v) : base(v)
+        {
+            Title = (TextView)v.FindViewById(Resource.Id.eventTitleTextView);
+        }
     }
 }
