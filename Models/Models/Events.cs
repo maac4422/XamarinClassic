@@ -22,5 +22,8 @@
 
         [JsonProperty(PropertyName = "location")]
         public string Location { get; set; }
+
+        [JsonProperty(PropertyName = "secondary_feature_image")]
+        public string  Image { get; set; }
     }
 }

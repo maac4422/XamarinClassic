@@ -7,6 +7,7 @@
     using Android.Views;
     using Android.Widget;
     using Models.Models;
+    using Square.Picasso;
     using UFCApp.Droid.Activities;
 
     public class EventsAdapter : RecyclerView.Adapter, IItemClickListener
@@ -40,7 +41,12 @@
             var item = events[position];
             var viewHolder = holder as EventsAdapterViewHolder;
             viewHolder.Title.Text = item.Title;
-
+            viewHolder.BaseTitle.Text = item.BaseTitle;
+            viewHolder.EventDate.Text = item.EventDate.ToString("dd,mm,yyyy");
+            if (!string.IsNullOrEmpty(item.Image))
+            {
+                Picasso.With(activity).Load(item.Image).Into(viewHolder.Image);
+            }
             viewHolder.SetItemClickListener(this);
         }
         
@@ -59,16 +65,22 @@
     {
         #region Attributes
         private IItemClickListener itemClickListener;
-        #endregion
+        #endregion  
 
         #region Propierties
         public TextView Title{ get; private set; }
+        public TextView BaseTitle { get; set; }
+        public TextView EventDate { get; set; }
+        public ImageView Image { get; set; }
         #endregion
 
         #region Constructors
         public EventsAdapterViewHolder(View v) : base(v)
         {
             Title = (TextView)v.FindViewById(Resource.Id.eventTitleTextView);
+            //BaseTitle = (TextView)v.FindViewById(Resource.Id.eventBaseTitleTextView);
+            //EventDate = (TextView)v.FindViewById(Resource.Id.eventDateTextView);
+            //Image = (ImageView)v.FindViewById(Resource.Id.eventImageView);
 
             v.SetOnClickListener(this);
             v.SetOnLongClickListener(this);
