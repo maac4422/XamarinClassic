@@ -135,6 +135,7 @@
     <Compile Include="Activities\EventDetailActivity.cs" />
     <Compile Include="Activities\NewDetailActivity.cs" />
     <Compile Include="Adapters\EventsAdapter.cs" />
+    <Compile Include="Adapters\IItemClickListener.cs" />
     <Compile Include="Adapters\NewsAdapter.cs" />
     <Compile Include="Fragments\EventsFragment.cs" />
     <Compile Include="Fragments\NewsFragment.cs" />

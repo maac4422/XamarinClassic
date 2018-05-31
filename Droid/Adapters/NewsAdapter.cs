@@ -8,7 +8,7 @@
     using Models.Models;
     using Square.Picasso;
 
-    class NewsAdapter : RecyclerView.Adapter
+    class NewsAdapter : RecyclerView.Adapter, IItemClickListener
     {
         #region Attributes
         private List<News> news;
@@ -43,14 +43,32 @@
             if(!string.IsNullOrEmpty(item.Image)) { 
                 Picasso.With(activity).Load(item.Image).Into(viewHolder.Image);
             }
+            viewHolder.SetItemClickListener(this);
         }
         
         public override int ItemCount => news.Count;
+
+        public void OnClick(View itemView, int position, bool isLongClick)
+        {
+            if (isLongClick)
+            {
+                Toast.MakeText(activity, "Long Click", ToastLength.Long).Show();
+            }
+            else
+            {
+                Toast.MakeText(activity, "Short Click", ToastLength.Short).Show();
+            }
+        }
+
         #endregion
     }
 
-    class NewsAdapterViewHolder : RecyclerView.ViewHolder
+    class NewsAdapterViewHolder : RecyclerView.ViewHolder, View.IOnClickListener, View.IOnLongClickListener
     {
+        #region Attributes
+        private IItemClickListener itemClickListener;
+        #endregion
+
         #region Propierties
         public TextView Title { get; private set; }
         public TextView Author { get; private set; }
@@ -63,6 +81,27 @@
             Title = (TextView)v.FindViewById(Resource.Id.newTitleTextView);
             Author = (TextView)v.FindViewById(Resource.Id.newAuthorTextView);
             Image = (ImageView)v.FindViewById(Resource.Id.newImageView);
+
+            v.SetOnClickListener(this);
+            v.SetOnLongClickListener(this);
+        }
+        #endregion
+
+        #region Methods
+        public void SetItemClickListener(IItemClickListener itemClickListener)
+        {
+            this.itemClickListener = itemClickListener;
+        }
+
+        public void OnClick(View v)
+        {
+            itemClickListener.OnClick(v, AdapterPosition, false);
+        }
+
+        public bool OnLongClick(View v)
+        {
+            itemClickListener.OnClick(v, AdapterPosition, true);
+            return true;
         }
         #endregion
     }
