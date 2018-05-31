@@ -19,8 +19,8 @@
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.NewDetail);
-            webView = FindViewById<WebView>(Resource.Id.newWebView);
+            //SetContentView(Resource.Layout.NewDetail);
+            //webView = FindViewById<WebView>(Resource.Id.newWebView);
             int newId = Intent.GetIntExtra("newId",1);
             webView.Settings.JavaScriptEnabled = true;
             webView.LoadUrl("http://www.google.com");
