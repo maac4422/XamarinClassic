@@ -2,11 +2,13 @@
 {
     using System.Collections.Generic;
     using Android.App;
+    using Android.Content;
     using Android.Support.V7.Widget;
     using Android.Views;
     using Android.Widget;
     using Models.Models;
     using Square.Picasso;
+    using UFCApp.Droid.Activities;
 
     class NewsAdapter : RecyclerView.Adapter, IItemClickListener
     {
@@ -50,14 +52,9 @@
 
         public void OnClick(View itemView, int position, bool isLongClick)
         {
-            if (isLongClick)
-            {
-                Toast.MakeText(activity, "Long Click", ToastLength.Long).Show();
-            }
-            else
-            {
-                Toast.MakeText(activity, "Short Click", ToastLength.Short).Show();
-            }
+            var intent = new Intent(activity,typeof(NewDetailActivity));
+            intent.PutExtra("newId",position);
+            activity.StartActivity(intent);
         }
 
         #endregion

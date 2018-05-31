@@ -2756,6 +2756,9 @@ namespace UFCApp.Droid
 			// aapt resource value: 0x7f0800a6
 			public const int eventTitleTextView = 2131230886;
 			
+			// aapt resource value: 0x7f0800a7
+			public const int eventWebView = 2131230887;
+			
 			// aapt resource value: 0x7f0800a8
 			public const int eventsRecyclerView = 2131230888;
 			
@@ -2880,10 +2883,7 @@ namespace UFCApp.Droid
 			public const int newTitleTextView = 2131230894;
 			
 			// aapt resource value: 0x7f0800b0
-			public const int newWeb = 2131230896;
-			
-			// aapt resource value: 0x7f0800a7
-			public const int newWebView = 2131230887;
+			public const int newWebView = 2131230896;
 			
 			// aapt resource value: 0x7f0800aa
 			public const int newsTabItem = 2131230890;

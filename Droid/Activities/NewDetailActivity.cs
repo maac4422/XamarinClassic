@@ -22,9 +22,9 @@
             //SetContentView(Resource.Layout.NewDetail);
             //webView = FindViewById<WebView>(Resource.Id.newWebView);
             int newId = Intent.GetIntExtra("newId",1);
-            webView.Settings.JavaScriptEnabled = true;
-            webView.LoadUrl("http://www.google.com");
-            webView.SetWebViewClient(new NewsWebViewClient());
+            //webView.Settings.JavaScriptEnabled = true;
+            //webView.LoadUrl("http://www.google.com");
+            //webView.SetWebViewClient(new NewsWebViewClient());
         }
         #endregion
 
