@@ -50,7 +50,7 @@
             recyclerView.SetLayoutManager(layoutManager);
             
 
-            adapter = new EventsAdapter(events);
+            adapter = new EventsAdapter(this.Activity, events);
             // Set CustomAdapter as the adapter for RecycleView
             recyclerView.SetAdapter(adapter);
             return rootView;

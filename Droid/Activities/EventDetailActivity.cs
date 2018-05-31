@@ -22,9 +22,9 @@
             //SetContentView(Resource.Layout.EventDetail);
             //webView = FindViewById<WebView>(Resource.Id.eventWebView);
             int newId = Intent.GetIntExtra("eventId", 1);
-            webView.Settings.JavaScriptEnabled = true;
-            webView.LoadUrl("http://www.google.com");
-            webView.SetWebViewClient(new EventsWebViewClient());
+            //webView.Settings.JavaScriptEnabled = true;
+            //webView.LoadUrl("http://www.google.com");
+            //webView.SetWebViewClient(new EventsWebViewClient());
         }
         #endregion
 
