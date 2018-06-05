@@ -12,15 +12,16 @@ using Android.Widget;
 using Android.Support.V4.App;
 using Android.Support.Design.Widget;
 using Android.Support.V4.View;
+using UFCApp.Android.Adapters;
 
 namespace UFCApp.Android.Fragments
 {
     public class OptionsGallery : Fragment
     {
         #region Attributes
-        private AppBarLayout appBar;
         private TabLayout tabs;
         private ViewPager viewPager;
+        private View view;
         #endregion
 
         #region LyfeClycles
@@ -29,18 +30,21 @@ namespace UFCApp.Android.Fragments
             base.OnCreate(savedInstanceState);
 
             // Create your fragment here
+
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             // Use this to return your custom view for this Fragment
-            // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
+            view = inflater.Inflate(Resource.Layout.options_gallery, container, false);
+            viewPager = view.FindViewById<ViewPager>(Resource.Id.viewpager);
+            viewPager.Adapter = new OptionsGalleryAdapter(ChildFragmentManager);
+            tabs = view.FindViewById<TabLayout>(Resource.Id.mainTabLayout);
 
-            return base.OnCreateView(inflater, container, savedInstanceState);
+            return view;
         }
         #endregion
 
-        #region Private Methods
-        #endregion
+      
     }
 }

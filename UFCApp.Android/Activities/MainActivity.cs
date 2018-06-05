@@ -28,13 +28,17 @@ namespace UFCApp.Android
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+                
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
 
             InitializeVariables();
             SetSupportActionBar(toolbar);
             SetMainFragment();
+
+            TabLayout tabLayout = (TabLayout)FindViewById(Resource.Id.mainTabLayout);
+
+            
 
             myActionBarDrawerToggle = new MyActionBarDrawerToggle(
                 this,
@@ -85,7 +89,7 @@ namespace UFCApp.Android
             int id = menuItem.ItemId;
             if (id.Equals(Resource.Id.nav_main))
             {
-                NavigateToFragment(new NewsFragment(), "Noticias");
+                NavigateToFragment(new OptionsGallery(), "Noticias");
             }
             else if(id.Equals(Resource.Id.nav_about))
             {
@@ -111,7 +115,7 @@ namespace UFCApp.Android
         private void SetMainFragment()
         {
             fragmentTransaction = SupportFragmentManager.BeginTransaction();
-            fragmentTransaction.Add(Resource.Id.fragmentContainer, new AboutFragment(), "Noticias");
+            fragmentTransaction.Add(Resource.Id.fragmentContainer, new OptionsGallery(), "Principal");
             fragmentTransaction.Commit();
         }
 

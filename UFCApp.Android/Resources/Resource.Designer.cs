@@ -2408,6 +2408,9 @@ namespace UFCApp.Android
 			// aapt resource value: 0x7f080085
 			public const int eventsRecyclerView = 2131230853;
 			
+			// aapt resource value: 0x7f0800a0
+			public const int eventsTabItem = 2131230880;
+			
 			// aapt resource value: 0x7f08002c
 			public const int exitUntilCollapsed = 2131230764;
 			
@@ -2474,8 +2477,11 @@ namespace UFCApp.Android
 			// aapt resource value: 0x7f080048
 			public const int list_item = 2131230792;
 			
-			// aapt resource value: 0x7f08009f
-			public const int masked = 2131230879;
+			// aapt resource value: 0x7f08009e
+			public const int mainTabLayout = 2131230878;
+			
+			// aapt resource value: 0x7f0800a3
+			public const int masked = 2131230883;
 			
 			// aapt resource value: 0x7f08008d
 			public const int media_actions = 2131230861;
@@ -2489,11 +2495,11 @@ namespace UFCApp.Android
 			// aapt resource value: 0x7f080019
 			public const int multiply = 2131230745;
 			
-			// aapt resource value: 0x7f0800a1
-			public const int nav_about = 2131230881;
+			// aapt resource value: 0x7f0800a5
+			public const int nav_about = 2131230885;
 			
-			// aapt resource value: 0x7f0800a0
-			public const int nav_main = 2131230880;
+			// aapt resource value: 0x7f0800a4
+			public const int nav_main = 2131230884;
 			
 			// aapt resource value: 0x7f080076
 			public const int nav_view = 2131230838;
@@ -2506,6 +2512,9 @@ namespace UFCApp.Android
 			
 			// aapt resource value: 0x7f080086
 			public const int newRecyclerView = 2131230854;
+			
+			// aapt resource value: 0x7f08009f
+			public const int newsTabItem = 2131230879;
 			
 			// aapt resource value: 0x7f080014
 			public const int none = 2131230740;
@@ -2714,8 +2723,11 @@ namespace UFCApp.Android
 			// aapt resource value: 0x7f08000e
 			public const int view_offset_helper = 2131230734;
 			
-			// aapt resource value: 0x7f08009e
-			public const int visible = 2131230878;
+			// aapt resource value: 0x7f0800a1
+			public const int viewpager = 2131230881;
+			
+			// aapt resource value: 0x7f0800a2
+			public const int visible = 2131230882;
 			
 			// aapt resource value: 0x7f080027
 			public const int withText = 2131230759;

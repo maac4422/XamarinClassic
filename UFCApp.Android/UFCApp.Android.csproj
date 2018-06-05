@@ -61,6 +61,7 @@
     <Compile Include="Adapters\EventsAdapter.cs" />
     <Compile Include="Adapters\IItemClickListener.cs" />
     <Compile Include="Adapters\NewsAdapter.cs" />
+    <Compile Include="Adapters\OptionsGalleryAdapter.cs" />
     <Compile Include="Fragments\AboutFragment.cs" />
     <Compile Include="Fragments\EventsFragment.cs" />
     <Compile Include="Fragments\NewsFragment.cs" />
