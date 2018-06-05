@@ -58,6 +58,8 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\EventDetailActivity.cs" />
+    <Compile Include="Activities\NewDetailActivity.cs" />
     <Compile Include="Adapters\EventsAdapter.cs" />
     <Compile Include="Adapters\IItemClickListener.cs" />
     <Compile Include="Adapters\NewsAdapter.cs" />

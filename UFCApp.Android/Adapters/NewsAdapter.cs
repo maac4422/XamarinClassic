@@ -6,6 +6,7 @@ using Android.Views;
 using Android.Widget;
 using Models.Models;
 using Square.Picasso;
+using UFCApp.Android.Activities;
 
 namespace UFCApp.Android.Adapters
 {
@@ -52,9 +53,9 @@ namespace UFCApp.Android.Adapters
 
         public void OnClick(View itemView, int position, bool isLongClick)
         {
-            //var intent = new Intent(activity, typeof(NewDetailActivity));
-            //intent.PutExtra("newId", position);
-            //activity.StartActivity(intent);
+            var intent = new Intent(activity, typeof(NewDetailActivity));
+            intent.PutExtra("newId", position);
+            activity.StartActivity(intent);
         }
 
         #endregion
