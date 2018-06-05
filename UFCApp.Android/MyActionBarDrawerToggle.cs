@@ -35,5 +35,6 @@ namespace UFCApp.Android
         {
             base.OnDrawerSlide(drawerView, slideOffset);
         }
+
     }
 }

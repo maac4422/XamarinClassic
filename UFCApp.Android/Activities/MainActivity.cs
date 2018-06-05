@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Support.V4.App;
 using Android.Widget;
 using Android.OS;
 using Android.Support.V7.App;
@@ -6,17 +7,21 @@ using SupportToolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.V4.Widget;
 using Android.Views;
 using UFCApp.Android.Fragments;
+using SupportFragmentTransaction = Android.Support.V4.App.FragmentTransaction;
+using Android.Support.Design.Widget;
+using SupportFragment = Android.Support.V4.App.Fragment;
 
 namespace UFCApp.Android
 {
     [Activity(Label = "@string/app_name", MainLauncher = true, Theme = "@style/MyTheme")]
-    public class MainActivity : AppCompatActivity
+    public class MainActivity : AppCompatActivity, NavigationView.IOnNavigationItemSelectedListener
     {
         #region Attributes
         private SupportToolbar toolbar;
         private MyActionBarDrawerToggle myActionBarDrawerToggle;
         private DrawerLayout drawerLayout;
-        private ListView leftDrawer;
+        private SupportFragmentTransaction fragmentTransaction;
+        NavigationView navigationView;
         #endregion
 
         #region LyfeCycles
@@ -51,8 +56,7 @@ namespace UFCApp.Android
         #region Override Methods
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            myActionBarDrawerToggle.OnOptionsItemSelected(item);
-            return base.OnOptionsItemSelected(item);
+            return myActionBarDrawerToggle.OnOptionsItemSelected(item);
         }
 
         protected override void OnSaveInstanceState(Bundle outState)
@@ -75,18 +79,40 @@ namespace UFCApp.Android
         }
         #endregion
 
+        #region Interface Methods
+        public bool OnNavigationItemSelected(IMenuItem menuItem)
+        {
+            int id = menuItem.ItemId;
+            if (id.Equals(Resource.Id.nav_main))
+            {
+                NavigateToFragment(new NewsFragment(), "Noticias");
+            }
+            else if(id.Equals(Resource.Id.nav_about))
+            {
+                NavigateToFragment(new AboutFragment(), "Acerca de");
+            }
+            drawerLayout.CloseDrawers();
+            return true;
+        }
+        #endregion
+
         #region PrivateMethods
         private void InitializeVariables()
         {
             toolbar = FindViewById<SupportToolbar>(Resource.Id.toolbar);
             drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawerLayout);
+            navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
+            if (navigationView != null)
+            {
+                navigationView.SetNavigationItemSelectedListener(this);
+            }
         }
 
         private void SetMainFragment()
         {
-            var transaction = SupportFragmentManager.BeginTransaction();
-            transaction.Add(Resource.Id.fragmentContainer, new NewsFragment(), "News");
-            transaction.Commit();
+            fragmentTransaction = SupportFragmentManager.BeginTransaction();
+            fragmentTransaction.Add(Resource.Id.fragmentContainer, new AboutFragment(), "Noticias");
+            fragmentTransaction.Commit();
         }
 
         private void SetTitleActionBar(Bundle bundle)
@@ -108,6 +134,16 @@ namespace UFCApp.Android
                 SupportActionBar.SetTitle(Resource.String.closeDrawer);
             }
         }
+
+        private void NavigateToFragment(SupportFragment fragment, string tag )
+        {
+            fragmentTransaction = SupportFragmentManager.BeginTransaction();
+            fragmentTransaction.Add(Resource.Id.fragmentContainer, fragment, tag);
+            fragmentTransaction.Replace(Resource.Id.fragmentContainer, fragment, tag);
+            fragmentTransaction.AddToBackStack(null);
+            fragmentTransaction.Commit();
+        }
+       
         #endregion
     }
 }

@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace UFCApp.Android.Fragments
 {
-    public class About : Fragment
+    public class AboutFragment : Fragment
     {
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,7 +27,9 @@ namespace UFCApp.Android.Fragments
             // Use this to return your custom view for this Fragment
             // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
 
-            return base.OnCreateView(inflater, container, savedInstanceState);
+            View view = inflater.Inflate(Resource.Layout.about, container, false);
+
+            return view;
         }
     }
 }
