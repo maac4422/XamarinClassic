@@ -22,6 +22,8 @@ namespace UFCApp.Android.Fragments
         private TabLayout tabs;
         private ViewPager viewPager;
         #endregion
+
+        #region LyfeClycles
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -36,5 +38,9 @@ namespace UFCApp.Android.Fragments
 
             return base.OnCreateView(inflater, container, savedInstanceState);
         }
+        #endregion
+
+        #region Private Methods
+        #endregion
     }
 }

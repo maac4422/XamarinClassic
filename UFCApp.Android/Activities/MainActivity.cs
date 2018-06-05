@@ -42,6 +42,7 @@ namespace UFCApp.Android
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowTitleEnabled(true);
             myActionBarDrawerToggle.SyncState();
+            
 
             SetTitleActionBar(savedInstanceState);
         }
@@ -79,7 +80,6 @@ namespace UFCApp.Android
         {
             toolbar = FindViewById<SupportToolbar>(Resource.Id.toolbar);
             drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawerLayout);
-            leftDrawer = FindViewById<ListView>(Resource.Id.leftDrawer);
         }
 
         private void SetMainFragment()
