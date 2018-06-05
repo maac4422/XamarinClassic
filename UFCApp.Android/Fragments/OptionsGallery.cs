@@ -41,6 +41,8 @@ namespace UFCApp.Android.Fragments
             viewPager.Adapter = new OptionsGalleryAdapter(ChildFragmentManager);
             tabs = view.FindViewById<TabLayout>(Resource.Id.mainTabLayout);
 
+            tabs.SetupWithViewPager(viewPager);
+
             return view;
         }
         #endregion
