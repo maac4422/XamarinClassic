@@ -7,6 +7,7 @@ using Models.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Android.Support.V4.App;
+using UFCApp.Android.Adapters;
 
 namespace UFCApp.Android.Fragments
 {
@@ -21,21 +22,41 @@ namespace UFCApp.Android.Fragments
         private List<News> news;
         #endregion
 
+        #region LifeCycle
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            newsBusinessLogic = new NewsBusinessLogic();
+        }
 
-            // Create your fragment here
+        public override void OnResume()
+        {
+            base.OnResume();
+            newsBusinessLogic = new NewsBusinessLogic();
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            // Use this to return your custom view for this Fragment
-            // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
+            var rootView = inflater.Inflate(Resource.Layout.News, container, false);
+            recyclerView = rootView.FindViewById<RecyclerView>(Resource.Id.newRecyclerView);
 
-            View view = inflater.Inflate(Resource.Layout.News, container, false);
+            var taskGetEvents = Task.Run(async () => {
+                news = await newsBusinessLogic.GetNews();
+            });
+            taskGetEvents.Wait();
 
-            return view;
+            // A LinearLayoutManager is used here, this will layout the elements in a similar fashion
+            // to the way ListView would layout elements. The RecyclerView.LayoutManager defines how the
+            // elements are laid out.
+            layoutManager = new LinearLayoutManager(Activity);
+            recyclerView.SetLayoutManager(layoutManager);
+
+
+            adapter = new NewsAdapter(this.Activity, news);
+            // Set CustomAdapter as the adapter for RecycleView
+            recyclerView.SetAdapter(adapter);
+            return rootView;
         }
+        #endregion
     }
 }
