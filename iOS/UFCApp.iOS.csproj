@@ -124,13 +124,13 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewControllers\ViewController.cs" />
-    <Compile Include="ViewControllers\ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewControllers\EventsViewController.cs" />
     <Compile Include="ViewControllers\EventsViewController.designer.cs">
       <DependentUpon>EventsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EventsTableViewCell.cs" />
+    <Compile Include="Views\EventsTableViewCell.designer.cs">
+      <DependentUpon>EventsTableViewCell.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

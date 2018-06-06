@@ -33,11 +33,12 @@ namespace UFCApp.iOS
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
-			var cell = tableView.DequeueReusableCell("eventCell");
+			var cell = tableView.DequeueReusableCell("eventCell") as EventsTableViewCell;
 
 			var currentEvent = events[indexPath.Row];
-			cell.TextLabel.Text = currentEvent.Title;
-			cell.DetailTextLabel.Text = currentEvent.Arena;
+			cell.titleLabel.Text = currentEvent.Title;
+			cell.baseTitleLabel.Text = currentEvent.Arena;
+			cell.dateEventLabel.Text = currentEvent.EventDate.ToString("dd,mm.yyyy");
 
 			return cell;
 		}
