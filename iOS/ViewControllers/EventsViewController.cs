@@ -39,8 +39,21 @@ namespace UFCApp.iOS
 			cell.titleLabel.Text = currentEvent.Title;
 			cell.baseTitleLabel.Text = currentEvent.Arena;
 			cell.dateEventLabel.Text = currentEvent.EventDate.ToString("dd,mm.yyyy");
-
+			cell.imageEvent.Image = UIImageFromUrl(currentEvent.Image);
 			return cell;
+		}
+
+		public static UIImage UIImageFromUrl(string uri)
+        {
+            using (var url = new NSUrl(uri))
+            using (var data = NSData.FromUrl(url))
+                return UIImage.LoadFromData(data);
+        }
+
+        [Export("tableView:heightForRowAtIndexPath:")]
+		public override nfloat GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
+		{
+			return 70;
 		}
 	}
 }
