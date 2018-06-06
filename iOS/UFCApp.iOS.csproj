@@ -132,6 +132,14 @@
     <Compile Include="Views\EventsTableViewCell.designer.cs">
       <DependentUpon>EventsTableViewCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewControllers\NewsViewController.cs" />
+    <Compile Include="ViewControllers\NewsViewController.designer.cs">
+      <DependentUpon>NewsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewsTableViewCell.cs" />
+    <Compile Include="Views\NewsTableViewCell.designer.cs">
+      <DependentUpon>NewsTableViewCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

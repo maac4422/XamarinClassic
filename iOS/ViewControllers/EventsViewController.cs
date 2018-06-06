@@ -53,7 +53,7 @@ namespace UFCApp.iOS
         [Export("tableView:heightForRowAtIndexPath:")]
 		public override nfloat GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
 		{
-			return 70;
+			return 81;
 		}
 	}
 }
